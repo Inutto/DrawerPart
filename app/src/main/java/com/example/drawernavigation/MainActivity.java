@@ -9,14 +9,17 @@ import android.os.BatteryManager;
 import android.os.Bundle;
 
 import com.example.drawernavigation.ui.BatteryFragment;
+import com.example.drawernavigation.ui.SettingsFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
 import android.os.PowerManager;
 import android.provider.Settings;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 
+import androidx.annotation.NonNull;
 import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.FragmentActivity;
 import androidx.navigation.NavController;
@@ -40,8 +43,11 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Log.d("main","set view of content");
+
 
 
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -73,6 +79,12 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+
+
+        // Settings Part
+        //navigationView.setNavigationItemSelectedListener(this);
+
     }
 
     //remove overflow button from toolbar
@@ -168,5 +180,25 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    // Settings Part
+
+    /*
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+        Log.d("main","on navigation item selected...");
+
+        switch(menuItem.getItemId()){
+            case R.id.nav_battery:{
+                Log.d("main","switch to battery fragment");
+                getSupportFragmentManager().beginTransaction()
+                        .replace(android.R.id.content, new BatteryFragment())
+                        .commit();
+                break;
+            }
+        }
+
+
+        return false;
+    }
+    */
 }
 

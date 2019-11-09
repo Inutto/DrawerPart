@@ -65,17 +65,15 @@ public class BatteryFragment extends Fragment {
     }
 
 
-
-
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.battery_fragment, container, false);
 
+        //Battery left
         TextView batteryLeft = root.findViewById(R.id.batteryTextView);
-
-
         batteryLeft.setText(Integer.toString(mListener.getBatteryLeft()) + "%");
+
         return root;
     }
 

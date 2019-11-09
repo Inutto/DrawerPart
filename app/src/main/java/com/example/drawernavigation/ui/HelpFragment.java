@@ -16,7 +16,6 @@ import com.example.drawernavigation.R;
 
 public class HelpFragment extends Fragment {
 
-    private HelpViewModel mViewModel;
 
     public static HelpFragment newInstance() {
         return new HelpFragment();
@@ -28,11 +27,5 @@ public class HelpFragment extends Fragment {
         return inflater.inflate(R.layout.help_fragment, container, false);
     }
 
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        mViewModel = ViewModelProviders.of(this).get(HelpViewModel.class);
-        // TODO: Use the ViewModel
-    }
 
 }

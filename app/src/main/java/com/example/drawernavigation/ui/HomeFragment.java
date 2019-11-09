@@ -16,8 +16,6 @@ import com.example.drawernavigation.R;
 
 public class HomeFragment extends Fragment {
 
-    private HomeViewModel mViewModel;
-
     public static HomeFragment newInstance() {
         return new HomeFragment();
     }
@@ -26,13 +24,6 @@ public class HomeFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.home_fragment, container, false);
-    }
-
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        mViewModel = ViewModelProviders.of(this).get(HomeViewModel.class);
-        // TODO: Use the ViewModel
     }
 
 }
