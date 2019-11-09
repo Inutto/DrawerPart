@@ -1,0 +1,32 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:title="General">
+
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="check_box_preference_1"
+            android:title="Show Picture only in Wifi"
+            android:summary="Implement this function if using material design theme"/>
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="switch_preference_1"
+            android:title="Switch preference"
+            android:summary="Implement this function if using material design theme"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="About">
+        <EditTextPreference
+            android:defaultValue="Default value"
+            android:key="edit_text_preference_1"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="Version"
+            android:summary="1.0.0.1"/>
+    </PreferenceCategory>
+
+
+
+</PreferenceScreen>
