@@ -1,13 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.BatteryFragment">
+    android:layout_height="match_parent">
+
+
+    <Switch
+        android:id="@+id/switchSend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Send notification to others                  "
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.696" />
+
+    <Switch
+        android:id="@+id/switchReceive"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Receive notification from others        "
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.755" />
+
+    <ImageButton
+        android:id="@+id/imageBattery"
+        android:layout_width="233dp"
+        android:layout_height="240dp"
+        android:onClick="saveBattery"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.376"
+        app:srcCompat="@drawable/pic_batterysos" />
+
+    <Button
+        android:id="@+id/buttonSimulate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="simulateNotification"
+        android:text="Simulate receive notification"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.841" />
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hello" />
+        android:id="@+id/batteryTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="66%"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageBattery"
+        app:layout_constraintEnd_toEndOf="@+id/imageBattery"
+        app:layout_constraintStart_toStartOf="@+id/imageBattery"
+        app:layout_constraintTop_toTopOf="@+id/imageBattery" />
 
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
