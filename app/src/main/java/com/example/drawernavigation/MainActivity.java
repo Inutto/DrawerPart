@@ -1,5 +1,6 @@
 package com.example.drawernavigation;
 
+import android.app.ActionBar;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.content.Context;
@@ -21,9 +22,13 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.NotificationManagerCompat;
+import androidx.core.view.GravityCompat;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
@@ -38,6 +43,8 @@ import android.view.Menu;
 import android.widget.Switch;
 
 public class MainActivity extends AppCompatActivity {
+
+    //implements NavigationView.OnNavigationItemSelectedListener
 
     private AppBarConfiguration mAppBarConfiguration;
 
@@ -81,8 +88,7 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(navigationView, navController);
 
 
-
-        // Settings Part
+        //under debuging
         //navigationView.setNavigationItemSelectedListener(this);
 
     }
@@ -101,14 +107,6 @@ public class MainActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
-
-
-    public boolean onNavigationItemSelected (){
-
-        return false;
-    }
-
-
 
 
 
@@ -186,25 +184,46 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    // Settings Part
+    //implement to have better contorl of drawer navigation
+
 
     /*
+
+    @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         Log.d("main","on navigation item selected...");
 
-        switch(menuItem.getItemId()){
-            case R.id.nav_battery:{
-                Log.d("main","switch to battery fragment");
-                getSupportFragmentManager().beginTransaction()
-                        .replace(android.R.id.content, new BatteryFragment())
-                        .commit();
-                break;
-            }
-        }
+        //Fragment mFragment = null;
+        //Navigation.findNavController(this.findViewById(R.id.nav_home)).navigate(menuItem.getItemId());
 
+        action = SpecifyAmountFragmentDirections
+                        .actionSpecifyAmountFragmentToConfirmationFragment(amount);
+        Navigation.findNavController(view).navigate(action);
+
+
+        FragmentManager mFragmentManager = getSupportFragmentManager();
+        mFragmentManager.beginTransaction()
+                        .replace(R.id.nav_host_fragment, mFragment, "Battery")
+                        .commit();
+
+
+
+        getSupportActionBar().setTitle(menuItem.getTitle());
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
 
         return false;
+
+
+
     }
-    */
+
+     */
+
+
+
+    // Setting Part
+
 }
 
